@@ -2,16 +2,12 @@ package common
 
 import (
 	"bytes"
-	"context"
 	"encoding/json"
 	"fmt"
 	"github.com/bitly/go-simplejson"
-	"github.com/chromedp/chromedp"
 	"io"
 	"io/ioutil"
 	"jrtt/config"
-	"jrtt/logger"
-	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -22,30 +18,7 @@ import (
 
 
 
-/**
-获取今日头条sign
- */
-func GetSign(url string)string  {
-	var api = "http://127.0.0.1:8080/sign?url="+url
-	var sign string
-	opts := append(chromedp.DefaultExecAllocatorOptions[:],
-		chromedp.Flag("headless", true),
-		chromedp.Flag("enable-automation", false),
-	)
-	allocCtx, _ := chromedp.NewExecAllocator(context.Background(), opts...)
-	ctx, _ := chromedp.NewContext(
-		allocCtx,
-		chromedp.WithLogf(log.Printf),
-	)
-	err := chromedp.Run(ctx,chromedp.Tasks{
-		chromedp.Navigate(api),
-		chromedp.Value(`#sign`, &sign, chromedp.ByID),
-	})
-	if err != nil {
-		logger.LogToMysql(err.Error(),true)
-	}
-	return sign
-}
+
 
 
 func JsonEncode(data interface{})string {

@@ -6,7 +6,6 @@ func GetJrttUrl() map[string]interface{} {
 	urlConfig := make(map[string]interface{})
 
 	urlConfig["LOGS_PATH"] = "/xxx/xxx/jrtt/logger/logs.log"	//日志路径  默认是记录到数据库,不需要更改
-	urlConfig["JS_PATH"] = "./acrawler.js"  //加密js路径 无视这里的配置，这个是获取签名，现在不用了
 
 	//这些参数都可以在今日头条官网的cookie里面查找到
 	urlConfig["JR_UID"] = "*****"
