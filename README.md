@@ -16,3 +16,7 @@
 #### dbConfig["DB_NAME"] = "" 数据库名称
 #### dbConfig["DB_USER"] = "" 账号
 #### dbConfig["DB_PWD"] = "" 密码
+
+
+#### JR_UID可以这样找
+![1642406340](https://user-images.githubusercontent.com/38691833/149730223-372f8567-cc0f-4d1b-9fb9-858e7f4f33fb.jpg)
