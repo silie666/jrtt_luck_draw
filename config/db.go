@@ -19,7 +19,7 @@ func GetDbConfig() map[string]interface{} {
 	dbConfig["DB_MAX_LIFETIME_CONNS"] = time.Hour // 连接池链接最长生命周期
 
 	//redis配置，无视就好
-	dbConfig["REDIS_HOST"] = "47.106.136.31"
+	dbConfig["REDIS_HOST"] = "127.0.0.1"
 	dbConfig["REDIS_PORT"] = 6379
 	dbConfig["REDIS_PWD"] = ""
 	dbConfig["REDIS_SELECT"] = 4
