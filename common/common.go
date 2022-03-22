@@ -60,10 +60,12 @@ func Get(url string,cookie ...http.Cookie) (response string) {
 	var req *http.Request
 
 	req, _ = http.NewRequest("GET", url, nil)
-	cookie1 := &http.Cookie{Name: "ttwid",Value: config["TTWID"].(string)}
-	cookie2 := &http.Cookie{Name: "sessionid",Value: config["SESSIONID"].(string)}
-	req.AddCookie(cookie1)
-	req.AddCookie(cookie2)
+        cookie1 := &http.Cookie{Name: "ttwid",Value: config["TTWID"].(string)}
+        cookie2 := &http.Cookie{Name: "csrf_session_id",Value: config["CSRF_SESSION_ID"].(string)}
+        cookie3 := &http.Cookie{Name: "sessionid",Value: config["SESSIONID"].(string)}
+        req.AddCookie(cookie1)
+        req.AddCookie(cookie2)
+        req.AddCookie(cookie3)
 
 	for _,v := range cookie {
 		req.AddCookie(&v)
@@ -109,19 +111,20 @@ func Get(url string,cookie ...http.Cookie) (response string) {
 func Post(url string,referer string, data url.Values, contentType string,cookie ...http.Cookie) (content string) {
 	config := config.GetJrttUrl()
 	req, err := http.NewRequest("POST", url, strings.NewReader(data.Encode()))
-	req.Header.Set("content-type", contentType)
-	req.Header.Set("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36")
-	req.Header.Set("referer", referer)
-	req.Header.Set("x-csrftoken", config["CSRFTOKEN"].(string))
-	cookie1 := &http.Cookie{Name: "ttwid",Value: config["TTWID"].(string)}
-	cookie2 := &http.Cookie{Name: "sessionid",Value: config["SESSIONID"].(string)}
-	cookie3 := &http.Cookie{Name: "csrftoken",Value: config["CSRFTOKEN"].(string)}
-	//cookie4 := &http.Cookie{Name: "passport_csrf_token",Value: config["PASSPORT_CSRF_TOKEN"].(string)}
-	cookie4 := &http.Cookie{Name: "passport_auth_status",Value: config["PASSPORT_AUTH_STATUS"].(string)}
-	req.AddCookie(cookie1)
-	req.AddCookie(cookie2)
-	req.AddCookie(cookie3)
-	req.AddCookie(cookie4)
+        req.Header.Set("content-type", contentType)
+        req.Header.Set("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36")
+        req.Header.Set("referer", referer)
+        req.Header.Set("x-secsdk-csrf-token", config["X-SECSDK-CSRF-TOKEN"].(string))
+        //cookie1 := &http.Cookie{Name: "ttwid",Value: config["TTWID"].(string)}
+        cookie2 := &http.Cookie{Name: "sessionid",Value: config["SESSIONID"].(string)}
+        //cookie3 := &http.Cookie{Name: "csrftoken",Value: config["CSRFTOKEN"].(string)}
+        cookie4 := &http.Cookie{Name: "csrf_session_id",Value: config["CSRF_SESSION_ID"].(string)}
+        //cookie4 := &http.Cookie{Name: "passport_auth_status",Value: config["PASSPORT_AUTH_STATUS"].(string)}
+        //cookie4 := &http.Cookie{Name: "passport_csrf_token",Value: config["PASSPORT_CSRF_TOKEN"].(string)}
+        //req.AddCookie(cookie1)
+        req.AddCookie(cookie2)
+        //req.AddCookie(cookie3)
+        req.AddCookie(cookie4)
 	for _,v := range cookie {
 		req.AddCookie(&v)
 	}
