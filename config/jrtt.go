@@ -11,10 +11,12 @@ func GetJrttUrl() map[string]interface{} {
 	urlConfig["JR_UID"] = "*****"
 	urlConfig["SESSIONID"] = "*****"
 	urlConfig["TTWID"] = "*****"
-	urlConfig["CSRFTOKEN"] = "*****"
+	//urlConfig["CSRFTOKEN"] = "*****"
 	//urlConfig["PASSPORT_CSRF_TOKEN"] = "*****"
-	urlConfig["PASSPORT_AUTH_STATUS"] = "*****"
-	urlConfig["page_size"] = 5   //这个是页码，一开始建议爬太多，因为关注接口头条有限制
+	//urlConfig["PASSPORT_AUTH_STATUS"] = "*****"
+	urlConfig["CSRF_SESSION_ID"] = "*****"
+	urlConfig["X-SECSDK-CSRF-TOKEN"] = "*****"
+	urlConfig["page_size"] = 5   //这个是页码，一开始不建议爬太多，因为关注接口头条有限制
 
 
 	//链接
