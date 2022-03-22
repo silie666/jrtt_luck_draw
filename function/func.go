@@ -86,7 +86,7 @@ func CheckId(luck respdata.List) {
 		var token string
 		if !user_model.IsTrue("uid = "+user_id+" and zhuanfa_uid = "+config["JR_UID"].(string)) {
 			user_body := common.Get(user_url)
-			compile1 := regexp.MustCompile(`<a class="avatar" href="\/c\/user\/token\/(.+?)\/\?source=author_home">`)
+			compile1 := regexp.MustCompile(`<a class="avatar" href="\/c\/user\/token\/(.+?)\/\?source=author_home"`)
 			submatch1 := compile1.FindStringSubmatch(user_body)
 			token  = submatch1[1]
 		}
