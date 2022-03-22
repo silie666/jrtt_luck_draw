@@ -6,8 +6,8 @@
 #### urlConfig["JR_UID"] = ""
 #### urlConfig["SESSIONID"] = ""
 #### urlConfig["TTWID"] = ""
-#### urlConfig["CSRFTOKEN"] = ""
-#### urlConfig["PASSPORT_AUTH_STATUS"] = ""
+#### urlConfig["CSRF_SESSION_ID"] = ""
+#### urlConfig["X-SECSDK-CSRF-TOKEN"] = "" 可以头部信息找到X-SECSDK-CSRF-TOKEN
 
 
 ## 修改config/db.go数据库配置
