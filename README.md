@@ -7,7 +7,7 @@
 #### urlConfig["SESSIONID"] = ""
 #### urlConfig["TTWID"] = ""
 #### urlConfig["CSRF_SESSION_ID"] = ""   需要点赞或者转发才会出现在cookie里面，头条用js加密了
-#### urlConfig["X-SECSDK-CSRF-TOKEN"] = ""
+#### urlConfig["X-SECSDK-CSRF-TOKEN"] = "" 在点赞或者转到请求连接的请求头里
 
 
 
