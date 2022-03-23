@@ -6,7 +6,7 @@
 #### urlConfig["JR_UID"] = ""
 #### urlConfig["SESSIONID"] = ""
 #### urlConfig["TTWID"] = ""
-#### urlConfig["CSRF_SESSION_ID"] = ""   
+#### urlConfig["CSRF_SESSION_ID"] = ""   需要点赞或者转发才会出现在cookie里面，头条用js加密了
 #### urlConfig["X-SECSDK-CSRF-TOKEN"] = ""
 
 
