@@ -1,4 +1,4 @@
-## 今日头条抽奖
+## 今日头条抽奖【该项目已停止维护】
 
 ## 看自己是什么环境，修改function/func.go下的chromedp.ExecPath("/usr/bin/google-chrome"),需要安装google-chrome
 
